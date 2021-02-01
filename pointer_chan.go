@@ -3,6 +3,7 @@ import (
     "fmt"
     "sync"
     "net"
+    "time"
 )
 type ReplyMsg struct {
   Buffer []byte
@@ -31,6 +32,7 @@ func main() {
     aa[0].Buffer = []byte("abc")
     aa[0].SippAddr, _ = net.ResolveUDPAddr("udp", "127.0.0.1" + ":" + "0")
     c <- aa[0]
+    time.Sleep(10 * time.Second)
     aa = aa[:0]
     fmt.Println(aa)
     go HandleRecv(c, &wg)
