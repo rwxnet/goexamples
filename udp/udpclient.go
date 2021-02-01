@@ -39,7 +39,7 @@ func main() {
     _, err = conn.Read(data)
     if err != nil {
       fmt.Println("failed to read UDP msg because of ", err)
-      os.Exit(1)
+      continue
     }
     fmt.Println(data)
     num = num + 1
